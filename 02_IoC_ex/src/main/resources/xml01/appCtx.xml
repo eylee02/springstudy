@@ -6,7 +6,7 @@
   <!-- Contact, Address, Person bean 만들기(<property>, <constructor-arg>) -->
   <bean class="com.gdu.app02.xml01.Contact" id="contact">
     <property name="mobile" value="010-1111-2222" />
-    <property name="fax" value="02-123-4567"></property>
+    <property name="fax" value="02-123-4567" />
   </bean>
 
   <bean class="com.gdu.app02.xml01.Address" id="address">
