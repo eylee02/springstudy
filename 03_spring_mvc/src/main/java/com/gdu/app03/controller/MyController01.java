@@ -30,7 +30,7 @@ public class MyController01 {
   public String welcome() {
     // ViewResolver의 prefix : /WEB-INF/views/
     // ViewResolver의 suffix : .jsp
-    return "index";
+    return "index";   // /WEB-INF/views/index.jsp
   }
 
   @RequestMapping(value="/board/list.do", method=RequestMethod.GET)
