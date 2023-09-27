@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-  ${blogNo}<br>
+  ${blogNo}
+  <br>
   ${requestScope.blogNo}
+  <br>
+  ${blogDto.blogNo}
+  <br>
+  ${blogDto.getBlogNo()}
+  <br>
+  ${dto.blogNo}
 </body>
 </html>
