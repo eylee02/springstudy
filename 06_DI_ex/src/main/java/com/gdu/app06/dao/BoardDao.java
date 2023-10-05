@@ -13,6 +13,7 @@ public class BoardDao {
   private BoardDto boardDto2;
   private BoardDto boardDto3; 
   
+  // Setter 형식을 이용한 @Autowired, 생성자형식은 config파일에서 생성자로bean을 생성해서 사용하지못함
   @Autowired
   public void setBoardDao(BoardDto boardDto1, BoardDto boardDto2, BoardDto boardDto3) {
     this.boardDto1 = boardDto1;
