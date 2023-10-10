@@ -27,7 +27,6 @@ public class MemberController {
   @GetMapping(value="/member/profile.display", produces="application/octet-stream") 
   public byte[] profile(@RequestParam("memberNo") int memberNo) {
     return memberService.getProfileImage(memberNo);
-
   }
   
   
