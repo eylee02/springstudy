@@ -14,14 +14,11 @@ public class JdbcConnection {
    * 일반 버전
    * Class.forName("oracle.jdbc.OracleDriver");
    * url = "jdbc:oracle:thin:@localhost:1521:xe"
+   * 
    * 쿼리 출력 버전(log4jdbc 디펜던시)
    * class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
    * url = "jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"
   */
-  
-  
-  
-  
   
   public Connection getConnection() {
     
@@ -38,8 +35,7 @@ public class JdbcConnection {
     
     return con;   
     
-  }
-  
+  } 
   
   public void close(Connection con, PreparedStatement ps, ResultSet rs) {
     
@@ -49,10 +45,7 @@ public class JdbcConnection {
       if(con != null) con.close();
     } catch(Exception e) {
       e.printStackTrace();
-    }
-    
+    }   
   }
-  
-  
-  
+
 }
