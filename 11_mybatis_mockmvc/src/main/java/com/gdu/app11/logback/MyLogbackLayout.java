@@ -1,4 +1,4 @@
-package com.gdu.app10.logback;
+package com.gdu.app11.logback;
 
 import java.text.SimpleDateFormat;
 
@@ -19,7 +19,7 @@ public class MyLogbackLayout extends LayoutBase<ILoggingEvent>{
     sb.append(":");
     String loggerName = event.getLoggerName();
     sb.append(loggerName);
-    if(loggerName.equals("jdbc.sqlonly")) {  // sql문을 출력할 때 줄바꿈을 하기위한 if문
+    if(loggerName.equals("jdbc.sqlonly")) {
       sb.append("\n");
     } else {
     sb.append(" - ");

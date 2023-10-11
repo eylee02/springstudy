@@ -26,7 +26,7 @@ public class AppConfig {
   // DataSource : CP(Connection Pool)을 처리하는 javax.sql.DataSource 인터페이스
   @Bean
   public DataSource dataSource() {
-    DriverManagerDataSource dataSource = new DriverManagerDataSource(); // DriverManagerDataSource : CP(Connection Pool)을 처리하는 Spring 클래스
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();     // DriverManagerDataSource : CP(Connection Pool)을 처리하는 Spring 클래스
     dataSource.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
     dataSource.setUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:xe");
     dataSource.setUsername("GD");
@@ -56,6 +56,7 @@ public class AppConfig {
     RuleBasedTransactionAttribute ruleBasedTransactionAttribute = new RuleBasedTransactionAttribute();
     ruleBasedTransactionAttribute.setRollbackRules(Collections.singletonList(new RollbackRuleAttribute(Exception.class)));
     
+    // 규칙을 matchAlwaysTransactionAttributeSource 타입으로 변환
     MatchAlwaysTransactionAttributeSource matchAlwaysTransactionAttributeSource = new MatchAlwaysTransactionAttributeSource();
     matchAlwaysTransactionAttributeSource.setTransactionAttribute(ruleBasedTransactionAttribute);
     

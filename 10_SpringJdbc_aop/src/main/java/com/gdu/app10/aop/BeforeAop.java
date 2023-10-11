@@ -54,7 +54,7 @@ public class BeforeAop {
     }
     
     // 4. 로그 찍기 (치환 문자 {} 활용)
-    log.info("{} {}", request.getMethod(), request.getRequestURI());  // 방식, 주소
+    log.info("{} {}", request.getMethod(), request.getRequestURI());  // 요청방식, 요청주소
     log.info("{}", params);                                           // 요청 파라미터
  
   }
