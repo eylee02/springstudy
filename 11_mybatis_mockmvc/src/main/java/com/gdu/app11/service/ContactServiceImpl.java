@@ -29,8 +29,8 @@ public class ContactServiceImpl implements ContactService {
   }
 
   @Override
-  public int deleteContact(int contact_no) {
-    int deleteResult = contactDao.delete(contact_no);
+  public int deleteContact(int contactNo) {
+    int deleteResult = contactDao.delete(contactNo);
     return deleteResult;
   }
 
@@ -40,8 +40,8 @@ public class ContactServiceImpl implements ContactService {
   }
 
   @Override
-  public ContactDto getContactByNo(int contact_no) {
-    return contactDao.selectContactByNo(contact_no);
+  public ContactDto getContactByNo(int contactNo) {
+    return contactDao.selectContactByNo(contactNo);
   }
   
   @Override
