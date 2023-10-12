@@ -6,12 +6,12 @@
   <!-- Console에 로그를 찍는 Appender -->
   <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-      <layout class="com.gdu.app11.logback.MyLogbackLayout" />
+      <layout class="com.gdu.app12.logback.MyLogbackLayout" />
    </encoder>
   </appender>
   
   <!-- Application Loggers -->
-  <logger name="com.gdu.app11" level="info" />
+  <logger name="com.gdu.app12" level="info" />
   
   <!-- 3rdparty Loggers -->
   <logger name="org.springframework" level="info" />
