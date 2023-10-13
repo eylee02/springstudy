@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gdu</groupId>
-	<artifactId>app12</artifactId>
-	<name>12_mybatis_scheduler_interceptor</name>
+	<artifactId>app13</artifactId>
+	<name>13_file</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
   
@@ -17,6 +17,21 @@
   </properties> 
   
   <dependencies>
+  
+  <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+  <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.8.0</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+  <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.5</version>
+  </dependency>
+  
+  
   
   <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
   <dependency>

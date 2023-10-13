@@ -48,6 +48,8 @@ public class ContactDao {
       ps.setString(2, contactDto.getTel());
       ps.setString(3, contactDto.getEmail());
       ps.setString(4, contactDto.getAddress());
+      
+      
       insertCount = ps.executeUpdate();
       
     } catch(Exception e) {
