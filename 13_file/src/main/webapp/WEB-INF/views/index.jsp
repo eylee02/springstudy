@@ -79,8 +79,7 @@
 		  width: '1000px',
 		  height: '400px',
 		  filebrowserImageUploadUrl: '${contextPath}/ckeditor/upload.do'  // 이미지 업로드 경로
-	  });
-	  
+	 });
 	  CKEDITOR.on('dialogDefinition', function(event){
 		  var dialogName = event.data.name;
 		  var dialogDefinition = event.data.definition;
