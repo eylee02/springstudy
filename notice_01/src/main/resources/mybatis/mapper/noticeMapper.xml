@@ -5,6 +5,12 @@
  
 <mapper namespace="com.gdu.app.dao.NoticeMapper">
   
+  <select id="getNotice" parameterType="int" resultType="NoticeDto">
+    SELECT NOTICE_NO, GUBUN, TITLE, CONTENT
+      FROM NOTICE_T
+     WHERE NOTICE_NO = #{noticeNo}
+  </select>
+  
   <insert id="addNotice" parameterType="NoticeDto">
     INSERT INTO NOTICE_T (
         NOTICE_NO,
