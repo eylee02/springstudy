@@ -25,19 +25,21 @@
     <div>
       <button type="button" id="btn_back">뒤로가기</button>
     </div>
-    <form method="post" action="${contextPath}/notice/save.do">
+    <form method="post" action="${contextPath}/notice/modify.do">
       <select name="gubun" id="gubun">
         <option value="2">일반</option>
         <option value="1">긴급</option>
       </select>
       <input type="text" name="title" id="title">
       <input type="text" name="content" id="content">
-      <button>작성완료</button>
+      <input type="hidden" name="noticeNo" id="noticeNo">
+      <button>편집완료</button>
     </form> 
     <script>
       $('#gubun').val('${notice.gubun}');
       $('#title').val('${notice.title}');
       $('#content').val('${notice.content}');
+      $('#noticeNo').val('${notice.noticeNo}');
     </script>
   </div>
   
@@ -58,6 +60,15 @@
   	  $('#a').show();
   	  $('#b').hide();
   	})
+  	
+  	var modifyResult = '${modifyResult}';  // '', '1', '0'
+  	if(modifyResult !== ''){
+  		if(modifyResult === '1'){
+  			alert('공지사항이 수정되었습니다.');
+  		} else {
+  			alert('공지사항이 수정되지 않았습니다.');
+  		}
+  	}
   </script>
   
 

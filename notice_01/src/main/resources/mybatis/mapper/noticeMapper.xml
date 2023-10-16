@@ -32,6 +32,14 @@
      ORDER BY NOTICE_NO DESC
   </select>
   
+  <update id="modifyNotice" parameterType="NoticeDto">
+    UPDATE NOTICE_T 
+       SET GUBUN = #{gubun}
+         , TITLE = #{title}
+         , CONTENT = #{content}
+     WHERE NOTICE_NO = #{noticeNo}
+  </update>
+  
   
    
 </mapper>

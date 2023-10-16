@@ -50,6 +50,13 @@ public class NoticeController {
     return "notice/detail";  // notice 폴더 아래 detail.jsp 파일로 notice를 보낸다.
   }
   
+  // 공지 수정
+  @RequestMapping(value="/notice/modify.do", method=RequestMethod.POST)
+  public String modify(NoticeDto noticeDto, RedirectAttributes redirectAttributes) {
+    int modifyResult = noticeService.modifyNotice(noticeDto);
+    redirectAttributes.addFlashAttribute("modifyResult", modifyResult);
+    return "redirect:/notice/detail.do?noticeNo=" + noticeDto.getNoticeNo();
+  }
   
   
 }
