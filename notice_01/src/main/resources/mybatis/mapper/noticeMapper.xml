@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.gdu.app.dao.NoticeMapper">
+  
+  <insert id="addNotice" parameterType="NoticeDto">
+    INSERT INTO NOTICE_T (
+        NOTICE_NO,
+        GUBUN,
+        TITLE,
+        CONTENT
+      ) VALUES (
+        NOTICE_SEQ.NEXTVAL
+      , #{gubun}
+      , #{title}
+      , #{content}
+      )
+  </insert>
+  
+  
+  <select id="getNoticeList" resultType="NoticeDto">
+    SELECT NOTICE_NO, GUBUN, TITLE, CONTENT
+      FROM NOTICE_T 
+     ORDER BY NOTICE_NO DESC
+  </select>
+  
+  
+   
+</mapper>
