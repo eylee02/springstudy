@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
  *  2) 상세 /members/1 |  GET
  *  3) 삽입 /members   |  POST
  *  4) 수정 /members   |  PUT
- *  5) 삭제 /members/1 |  DELETE
+ *  5) 삭제 /member/1 |  DELETE  | /members/4,3,2
  */
 
 
@@ -52,5 +52,29 @@ public class MemberController {
     int page = Integer.parseInt(opt.orElse("1"));
     return memberService.getMembers(page);
   }
+  
+  // 회원 조회 요청
+  @RequestMapping(value="/members/{mNo}", method=RequestMethod.GET, produces="application/json")
+  public Map<String, Object> getMember(@PathVariable(value="mNo") int memberNo) {
+    return memberService.getMember(memberNo);
+  }
+  
+  // 회원 정보 수정요청
+  @RequestMapping(value="/members", method=RequestMethod.PUT, produces="application/json")
+  public Map<String, Object> modifyMember(@RequestBody MemberDto memberDto){
+    return memberService.modifyMember(memberDto);
+  }
+  
+  // 회원 정보 삭제요청
+  @RequestMapping(value="/member/{mNo}", method=RequestMethod.DELETE, produces="application/json")
+  public Map<String, Object> deleteMember(@PathVariable(value="mNo") int memberNo) {
+    return memberService.deleteMember(memberNo);
+  } 
+  
+  // 회원들 정보 삭제 요청
+  @RequestMapping(value="/members/{memberNoList}", method=RequestMethod.DELETE, produces="application/json")
+  public Map<String, Object> removeMembers(@PathVariable(value="memberNoList") String memberNoList) {
+    return memberService.removeMembers(memberNoList);
+  } 
   
 }

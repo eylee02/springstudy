@@ -19,11 +19,12 @@
     <h3>내용 : ${notice.content}</h3>
     <div>
       <button type="button" id="btn_edit">편집하러가기</button>
+      <button type="button" id="btn_delete">삭제하기</button>
     </div>
   </div>
   <div id="b">
     <div>
-      <button type="button" id="btn_back">뒤로가기</button>
+      <button id="frm_detail" type="button" id="btn_back">뒤로가기</button>
     </div>
     <form method="post" action="${contextPath}/notice/modify.do">
       <select name="gubun" id="gubun">
@@ -61,12 +62,29 @@
   	  $('#b').hide();
   	})
   	
+  	// 삭제하기 클릭
+  	$('#btn_delete').click(function(){
+  	  if(confirm('공지를 삭제할까요?')){
+  		$('#frm_detail').attr('action', '${contextPath}/notice/delete.do');
+  		$('#frm_detail').submit();
+  	  }
+  	})
+  	
   	var modifyResult = '${modifyResult}';  // '', '1', '0'
   	if(modifyResult !== ''){
   		if(modifyResult === '1'){
   			alert('공지사항이 수정되었습니다.');
   		} else {
   			alert('공지사항이 수정되지 않았습니다.');
+  		}
+  	}
+  	
+  	var deleteResult = '${deleteResult}';
+  	if(deleteResult !== ''){
+  		if(deleteResult === '1'){
+  			alert('공지사항이 삭제되었습니다.');
+  		} else {
+  			alert('공지사항이 삭제되지 않았습니다.');
   		}
   	}
   </script>
