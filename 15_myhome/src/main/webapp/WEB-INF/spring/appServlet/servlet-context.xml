@@ -14,9 +14,6 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-  
-    <!-- CKEditor에서 첨부한 이미지의 경로를 디렉터리 경로와 연결하는 태그 -->
-    <resources mapping="/storage/**" location="file://storage/" ></resources>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.gdu.app13" />
+	<context:component-scan base-package="com.gdu.myhome" />
 	
 	
 	

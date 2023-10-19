@@ -8,6 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+
+	$(function(){
+		fnDelete();
+	})
+
+</script>
+
 </head>
 <body>
 
@@ -63,13 +71,21 @@
   	})
   	
   	// 삭제하기 클릭
+  	function fnDelete(){
   	$('#btn_delete').click(function(){
   	  if(confirm('공지를 삭제할까요?')){
-  		$('#frm_detail').attr('action', '${contextPath}/notice/delete.do');
-  		$('#frm_detail').submit();
+  		var deleteResult = '${deleteResult}';
+  		if(deleteResult !== ''){
+  	  		if(deleteResult === '1'){
+  	  		alert('공지사항이 삭제되었습니다.');
+    		location.href="${contextPath}/notice/delete.do?noticeNo=${notice.noticeNo}";
+  	  		} else {
+  	  			alert('공지사항이 삭제되지 않았습니다.');
+  	  		}	
+  	  } 
   	  }
   	})
-  	
+  	}
   	var modifyResult = '${modifyResult}';  // '', '1', '0'
   	if(modifyResult !== ''){
   		if(modifyResult === '1'){
@@ -79,14 +95,6 @@
   		}
   	}
   	
-  	var deleteResult = '${deleteResult}';
-  	if(deleteResult !== ''){
-  		if(deleteResult === '1'){
-  			alert('공지사항이 삭제되었습니다.');
-  		} else {
-  			alert('공지사항이 삭제되지 않았습니다.');
-  		}
-  	}
   </script>
   
 

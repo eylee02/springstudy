@@ -107,5 +107,48 @@ public class FileServiceImpl implements FileService {
   } 
     return Map.of("success", true);
   }
+  
+  @Override
+  public Map<String, Object> ckeditorUpload(MultipartFile upload, String contextPath) {
+    
+    // 이미지를 저장할 경로
+    String path = myFileUtil.getPath();
+    
+    // 파일이없으면 생성한다
+    File dir = new File(path);
+    if(!dir.exists()) {
+      dir.mkdirs();
+    }
+    
+    // 이미지 저장할 이름 (원래 이름 + 저장할 이름)
+    String originalFilename = upload.getOriginalFilename();
+    String filesystemName = myFileUtil.getFilesystemName(originalFilename);
+    
+    // 이미지 File 객체
+    File file = new File(dir, filesystemName);
+    
+    // File 객체를 참고하여, MultipartFile upload 첨부 이미지 저장
+    try {
+      
+      upload.transferTo(file);
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
+    // CKEditor로 저장된 이미지를 확인할 수 있는 경로를 {"url": "http://localhost:8080/app13/..."} 방식으로 반환해야 함
+    return Map.of("url", contextPath + path + "/" + filesystemName
+                , "uploaded", true);
+    
+    /*
+     *  CKEditor로 반환할 url
+     *    http://localhost:8080/app13/storage/2023/10/18/1b5ff4e6221e423f91b235c5c62530a6.png
+     *  
+     *  servlet-context.xml에
+     *    <resources mapping="/storage/**" location="file://storage/"></resources>
+     *  태그를 추가함
+     * 
+     */
+  }
 
 }
