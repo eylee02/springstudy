@@ -19,6 +19,31 @@
   
   <dependencies>
   
+  <!--  -->
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+  <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${org.springframework-version}</version>
+  </dependency>
+  
+  <!-- 이메일 전송 API (javax.mail + spring-context-support)-->
+  <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+  <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>javax.mail-api</artifactId>
+      <version>1.6.2</version>
+  </dependency>
+  
+  <!-- Random String 생성(이메일 인증코드 생성) -->
+  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+  <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.12.0</version>
+  </dependency>
+  
+  <!-- 파일 첨부 (commons-io + commons-fileupload) -->
   <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
   <dependency>
       <groupId>commons-io</groupId>
@@ -33,7 +58,7 @@
   </dependency>
   
   
-  
+  <!-- Aspect Oriented Programming(AOP) -->
   <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
   <dependency>
       <groupId>org.aspectj</groupId>
@@ -48,7 +73,7 @@
       <version>${org.aspectj-version}</version>
     </dependency> 
   
-  
+  <!-- Logback + 쿼리 Log --> 
   <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
   <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -63,7 +88,7 @@
       <version>1.16</version>
   </dependency>
   
-  
+  <!-- Test -->
   <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
   <dependency>
       <groupId>org.springframework</groupId>
@@ -72,7 +97,7 @@
       <scope>test</scope>
   </dependency>
   
-      <!-- Test -->
+    <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -81,7 +106,7 @@
     </dependency>        
   
   
-  
+  <!-- Java(Object, Map, List) <> JSON -->
   <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
