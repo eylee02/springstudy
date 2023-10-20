@@ -23,9 +23,9 @@
     
     <div class="header_wrap">
       <div class="logo"></div>
-      <div class="login">
+      <div class="login_wrap">
         <c:if test="${sessionScope.user == null}">
-          <ul>
+          <ul class="ul_menu right_wrap">
             <li><a href="${contextPath}/user/login.form">로그인</a></li>
             <li><a href="${contextPath}/user/agree.form">회원가입</a></li>
           </ul>
