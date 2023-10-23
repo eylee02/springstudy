@@ -72,7 +72,38 @@ public class UserController {
     return userService.sendCode(email);
   }
   
-
+  @PostMapping("/join.do")
+  public void join(HttpServletRequest request, HttpServletResponse response) {
+    userService.join(request, response);
+  }
+  
+  @GetMapping("/mypage.form")
+  public String mypageForm() {
+    return "user/mypage";
+  }
+  
+  @PostMapping(value="/modify.do", produces=MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<Map<String, Object>> modify(HttpServletRequest request){
+    return userService.modify(request);
+  }
+  
+  // 비밀번호 변경화면으로 이동
+  @GetMapping("/modifyPw.form")
+  public String modifyPwForm() {
+    return "user/pw";
+  }
+  
+  @PostMapping("/modifyPw.do")
+  public void modifyPw(HttpServletRequest request, HttpServletResponse response) {
+    userService.modifyPw(request, response);
+  }
+  
+  @PostMapping("/leave.do")
+  public void leave(HttpServletRequest request, HttpServletResponse response) {
+    userService.leave(request, response);
+  }
+  
+  
 
 
 }

@@ -10,8 +10,14 @@
   <jsp:param value="로그인" name="title"/>
 </jsp:include>
 
+  <style>
+  .login_form_wrap {
+    width: 300px;
+  }
+  </style>
 
-  
+
+  <div class="login_form_wrap center_wrap">
   <form method="post" action="${contextPath}/user/login.do">
     <div>
       <label for="email">아이디</label>
@@ -26,9 +32,8 @@
       <button type="submit">로그인</button>
     </div>  
   </form>
-  
-  <div>
-    <ul>
+
+    <ul class="ul_menu center_wrap">
       <li><a href="${contextPath}">자동로그인</a></li>
       <li><a href="${contextPath}">아이디/비밀번호 찾기</a></li>
     </ul>

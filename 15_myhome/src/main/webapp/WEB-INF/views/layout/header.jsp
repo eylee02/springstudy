@@ -40,7 +40,7 @@
           <li><a href="${contextPath}">댓글형게시판</a></li>
           <li><a href="${contextPath}">계층게시판</a></li>
           <li><a href="${contextPath}">첨부게시판</a></li>
-          <li><a href="${contextPath}">MY</a></li>
+          <li><a href="${contextPath}/user/mypage.form">MY</a></li>
         </ul>
       </div>
     </div>

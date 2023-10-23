@@ -18,7 +18,7 @@ public class InactiveUserDto {
   private String name;
   private String gender;
   private String mobile;
-  private String postCode;
+  private String postcode;
   private String roadAddress;
   private String jibunAddress;
   private String detailAddress;
