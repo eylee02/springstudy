@@ -27,7 +27,7 @@
     
     <div>
       <label for="name">이름</label>
-      <input type="text" id="name" name="name" value="${session.user.name}">
+      <input type="text" id="name" name="name" value="${sessionScope.user.name}">
       <span id="msg_name"></span>
     </div>
     

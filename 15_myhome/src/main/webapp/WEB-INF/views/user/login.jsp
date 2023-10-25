@@ -40,7 +40,7 @@
     <hr>
     <div>
       <a href="${naverLoginURL}">
-      <img src="${contextPath}/resources/image/btnG_축약형.png" width="100px">
+      <img src="${contextPath}/resources/image/btnG_축약형.png" width="200px">
       </a>      
     </div>
   </div>
