@@ -94,7 +94,8 @@ public class UserServiceImpl implements UserService {
     // redirect_uri : 네이버로그인-2를 처리할 서버 경로를 작성한다.
     // redirect_uri 값은 네이버 로그인 네이버 로그인 Callback URL에도 동일하게 등록해야 한다.
     String apiURL = "https://nid.naver.com/oauth2.0/authorize";
-    String response_type = "code";    
+    String response_type = "code";    // 인증 과정에 대한 내부 구분값
+    // 네이버 로그인 api 신청 시 callback url을 입력하는데 그 주소에 URL인코딩을 적용
     String redirect_uri = URLEncoder.encode("http://localhost:8080" + request.getContextPath() + "/user/naver/getAccessToken.do", "UTF-8");
     String state = new BigInteger(130, new SecureRandom()).toString();
     
@@ -532,6 +533,11 @@ public class UserServiceImpl implements UserService {
     }
     
     
+  }
+  
+  @Override
+  public String findUserId(HttpServletRequest request, HttpServletResponse response) {
+    return "";
   }
   
 }

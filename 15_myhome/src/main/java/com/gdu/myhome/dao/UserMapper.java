@@ -25,4 +25,5 @@ public interface UserMapper {
   public int insertActiveUser(String email);
   public int deleteInactiveUser(String email);
   public int insertNaverUser(UserDto user);
+  public UserDto findUserId(String name, String mobile);
 }

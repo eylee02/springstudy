@@ -28,5 +28,5 @@ public interface UserService {
   public void leave(HttpServletRequest request, HttpServletResponse response); 
   public void inactiveUserBatch();
   public void active(HttpSession session, HttpServletRequest request, HttpServletResponse response);
-  
+  public String findUserId(HttpServletRequest request, HttpServletResponse response);
 }
