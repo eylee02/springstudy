@@ -5,6 +5,34 @@
  
  <mapper namespace="com.gdu.myhome.dao.BlogMapper">
   
+  <!-- join을 사용하려면 resultMap을 작성해줘야함 -->
+  <!-- id , result, association 순서대로 작성 -->
+  <resultMap type="BlogDto" id="BlogMap">
+    <id     column="BLOG_NO"     property="blogNo" />
+    <result column="TITLE"       property="title" />
+    <result column="CONTENTS"    property="contents" />
+    <result column="HIT"         property="hit" />
+    <result column="IP"          property="ip" />
+    <result column="CREATED_AT"  property="createdAt" />
+    <result column="MODIFIED_AT" property="modifiedAt" />
+    <association javaType="UserDto"   property="userDto">
+      <id column="USER_NO"            property="userNo" />
+      <result column="EMAIL"          property="email"/>
+      <result column="PW"             property="pw"/>
+      <result column="NAME"           property="name"/>
+      <result column="GENDER"         property="gender"/>
+      <result column="MOBILE"         property="mobile"/>
+      <result column="POSTCODE"       property="postcode"/>
+      <result column="ROAD_ADDRESS"   property="roadAddress"/>
+      <result column="JIBUN_ADDRESS"  property="jibunAddress"/>
+      <result column="DETAIL_ADDRESS" property="detailAddress"/>
+      <result column="AGREE"          property="agree"/>
+      <result column="STATE"          property="state"/>
+      <result column="PW_MODIFIED_AT" property="pwModifiedAt"/>
+      <result column="JOINED_AT"      property="joinedAt"/>
+    </association>
+  </resultMap>
+  
   <!-- 
     처리 순서
     1. BLOG_SEQ.NEXTVAL 값을 먼저(order="BEFORE") 파라미터로 전달된 BlogDto의 blogNo에 저장(keyProperty="blogNo")한다.
@@ -27,7 +55,7 @@
         #{blogNo}
       , #{title}
       , #{contents}
-      , #{userNo}
+      , #{userDto.userNo}
       , #{ip}
       , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI:SS')
       , TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI:SS')
@@ -52,12 +80,36 @@
      WHERE IMAGE_PATH = '/blog/' || TO_CHAR(SYSDATE - 1, 'YYYY/MM/DD')
   </select>
   
-  <select id="getBlogList" parameterType="Map" resultType="BlogDto">
+  <select id="getBlogCount" resultType="int">
+    SELECT COUNT(*)
+      FROM BLOG_T
+  </select>
+  
+  <select id="getBlogList" parameterType="Map" resultMap="BlogMap">
     SELECT A.BLOG_NO, A.TITLE, A.CONTENTS, A.USER_NO, A.EMAIL, A.HIT, A.IP, A.CREATED_AT, A.MODIFIED_AT
       FROM (SELECT ROW_NUMBER() OVER(ORDER BY B.BLOG_NO DESC) AS RN, B.BLOG_NO, B.TITLE, B.CONTENTS, B.USER_NO, U.EMAIL, B.HIT, B.IP, B.CREATED_AT, B.MODIFIED_AT
               FROM USER_T U INNER JOIN BLOG_T B
                 ON B.USER_NO = U.USER_NO) A
      WHERE A.RN BETWEEN #{begin} AND #{end}
   </select>
+  
+  <update id="updateHit" parameterType="int">
+    UPDATE BLOG_T
+       SET HIT = HIT + 1
+     WHERE BLOG_NO = #{blogNo}
+  </update>
+  
+  <select id="getBlog" parameterType="int" resultMap="BlogMap">
+    SELECT B.BLOG_NO, B.TITLE, B.CONTENTS, B.HIT, B.IP, B.CREATED_AT, B.MODIFIED_AT, U.USER_NO, U.EMAIL, U.NAME
+      FROM USER_T U, BLOG_T B
+     WHERE U.USER_NO = B.USER_NO
+       AND B.BLOG_NO = #{blogNo}
+  </select>
+  
+  
+  
+  
+  
+  
   
  </mapper>
