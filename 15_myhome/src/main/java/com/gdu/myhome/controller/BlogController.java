@@ -53,8 +53,8 @@ public class BlogController {
   // 조회수 올리기
   @GetMapping("/increseHit.do")
   public String increseHit(@RequestParam(value="blogNo", required=false, defaultValue="0") int blogNo) {
-    int incresrResult = blogService.increseHit(blogNo);
-    if(incresrResult == 1) {
+    int increseResult = blogService.increseHit(blogNo);
+    if(increseResult == 1) {
       return "redirect:/blog/detail.do?blogNo=" + blogNo;
     } else {
       return "/redirect:/blog/list.do";
