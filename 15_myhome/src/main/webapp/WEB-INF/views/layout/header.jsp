@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/main.css?dt=${dt}" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/decoupled-document/ckeditor.js"></script>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
         <ul class="gnb">
           <li><a href="${contextPath}/free/list.do">계층게시판</a></li>
           <li><a href="${contextPath}/blog/list.do">댓글형게시판</a></li>
-          <li><a href="${contextPath}">첨부게시판</a></li>
+          <li><a href="${contextPath}/upload/list.do">첨부게시판</a></li>
           <li><a href="${contextPath}/user/mypage.form">MY</a></li>
         </ul>
       </div>
