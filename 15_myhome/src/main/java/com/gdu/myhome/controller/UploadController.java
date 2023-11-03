@@ -3,7 +3,6 @@ package com.gdu.myhome.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -60,6 +59,11 @@ public class UploadController {
   @GetMapping("/download.do")
   public ResponseEntity<Resource> download(HttpServletRequest request) {
     return uploadService.download(request);
+  }
+  
+  @GetMapping("/downloadAll.do")
+  public ResponseEntity<Resource> downloadAll(HttpServletRequest request) {
+    return uploadService.downloadAll(request);
   }
   
   

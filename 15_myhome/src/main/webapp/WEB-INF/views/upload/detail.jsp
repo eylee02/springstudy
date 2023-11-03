@@ -37,21 +37,26 @@
   
   <h4>첨부 다운로드</h4>
   <div>
+    <!-- 첨부 목록이 비어있을 때 -->
     <c:if test="${empty attachList}">
       <div>첨부 없음</div>
     </c:if>
+    <!-- 첨부가 있을 때 -->
     <c:if test="${not empty attachList}">
       <c:forEach items="${attachList}" var="atc">
         <div class="attach" data-attach_no="${atc.attachNo}">
+          <!-- 썸네일 데이터가 있을 때 -->
           <c:if test="${atc.hasThumbnail == 1}">
             <img src="${contextPath}${atc.path}/s_${atc.filesystemName}" alt="썸네일" width="50px">
           </c:if>
+          <!-- 썸네일 데이터가 없을 때(지정이미지 출력) -->
           <c:if test="${atc.hasThumbnail == 0}">
             <img src="${contextPath}/resources/image/attach1.png" alt="썸네일" width="50px">
           </c:if>
           ${atc.originalFilename}
         </div>
       </c:forEach>
+      <div><a href="${contextPath}/upload/downloadAll.do?uploadNo=${upload.uploadNo}">모두 다운로드</a></div>
     </c:if>
   </div>
   

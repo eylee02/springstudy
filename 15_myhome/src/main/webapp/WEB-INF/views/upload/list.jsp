@@ -83,7 +83,14 @@
 		  }
 	  })
   }
+  
+  const fnUploadDetail = () => {
+	  $(document).on('click', '.upload', function(){
+		  location.href = '${contextPath}/upload/detail.do?uploadNo=' + $(this).data('upload_no');
+	  })
+  }
  
+  // 스크롤을 내리면 목록이 나오게하는 함수
   const fnScroll = () => {
      
     var timerId;  // 최초 undifined 상태
@@ -115,32 +122,23 @@
   }
  
    const fnAddResult = () => {
-  let addResult = '${addResult}';  // '', 'true', 'false'
-  if(addResult != ''){
-    if(addResult === 'true'){
-   alert('성공적으로 업로드 되었습니다.');
-       $('#upload_list').empty();
-    } else {
-   alert('업로드가 실패하였습니다.');
-    }
-  }  
+    let addResult = '${addResult}';  // '', 'true', 'false'
+    if(addResult != ''){
+      if(addResult === 'true'){
+     alert('성공적으로 업로드 되었습니다.');
+         $('#upload_list').empty();
+      } else {
+     alert('업로드가 실패하였습니다.');
+      }
+    }  
    }
    
-   const fnDetail = () => {
-    $('.upload').click((ev) => {
-     if($(ev.target).data('upload_no') != ''){
-	  location.href = '${contextPath}/upload/detail.do?uploadNo=' + $(ev.target).data('upload_no'); 
-    	 
-     }
-   })
-   } 
-   
-   
  
+
    fnGetUploadList();
+   fnUploadDetail();
    fnScroll();
    fnAddResult();
-   fnDetail();
  </script>
  
 
